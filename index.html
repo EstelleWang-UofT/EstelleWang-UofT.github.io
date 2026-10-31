@@ -9,7 +9,8 @@
   <style>
     :root {
       color-scheme: light;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
       color: #242424;
       background: #f6f5f2;
       font-synthesis: none;
@@ -17,27 +18,232 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    * { box-sizing: border-box; }
-    body { min-height: 100vh; margin: 0; display: grid; place-items: center; padding: 2rem; }
-    main { width: min(100%, 680px); padding: clamp(2rem, 8vw, 5rem); background: #fff; border: 1px solid #e8e6e1; border-radius: 24px; box-shadow: 0 24px 70px rgb(34 31 25 / 7%); }
-    .eyebrow { margin: 0 0 1.25rem; color: #77736b; font-size: .78rem; font-weight: 650; letter-spacing: .14em; text-transform: uppercase; }
-    h1 { margin: 0; font-size: clamp(2.6rem, 10vw, 4.5rem); letter-spacing: -.065em; line-height: 1.04; }
-    .intro { max-width: 38ch; margin: 1.5rem 0 0; color: #625f59; font-size: 1.1rem; line-height: 1.8; }
-    nav { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2.25rem; }
-    nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 1rem; border: 1px solid #dedbd4; border-radius: 999px; color: #242424; font-size: .95rem; text-decoration: none; transition: background .2s, border-color .2s; }
-    nav a:hover, nav a:focus-visible { background: #f2f0eb; border-color: #bdb8ae; }
-    footer { margin-top: 3.5rem; color: #8a867e; font-size: .85rem; }
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 2rem;
+    }
+
+    main {
+      width: min(100%, 680px);
+      padding: clamp(2rem, 8vw, 5rem);
+      background: #fff;
+      border: 1px solid #e8e6e1;
+      border-radius: 24px;
+      box-shadow: 0 24px 70px rgb(34 31 25 / 7%);
+    }
+
+    .eyebrow {
+      margin: 0 0 1.25rem;
+      color: #77736b;
+      font-size: .78rem;
+      font-weight: 650;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.6rem, 10vw, 4.5rem);
+      letter-spacing: -.065em;
+      line-height: 1.04;
+    }
+
+    .intro {
+      max-width: 38ch;
+      margin: 1.5rem 0 0;
+      color: #625f59;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-top: 2.25rem;
+    }
+
+    nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 1rem;
+      border: 1px solid #dedbd4;
+      border-radius: 999px;
+      color: #242424;
+      font-size: .95rem;
+      text-decoration: none;
+      transition: background .2s, border-color .2s;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      background: #f2f0eb;
+      border-color: #bdb8ae;
+    }
+
+    .hobbies,
+    .readings-i-like {
+      margin-top: 3rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid #eeece7;
+    }
+
+    .readings-i-like .section-lead {
+      margin: .75rem 0 0;
+    }
+
+    .readings-i-like a {
+      color: #242424;
+      text-decoration-color: #bdb8ae;
+      text-underline-offset: .2em;
+    }
+
+    .readings-i-like a:hover,
+    .readings-i-like a:focus-visible {
+      color: #625f59;
+    }
+
+    .section-label {
+      margin: 0;
+      color: #77736b;
+      font-size: .78rem;
+      font-weight: 650;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .section-lead {
+      margin: .75rem 0 1.5rem;
+      color: #625f59;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .hobbies ul {
+      display: grid;
+      gap: .75rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .hobbies li {
+      padding: 1rem 1.15rem;
+      background: #faf9f6;
+      border: 1px solid #eeece7;
+      border-radius: 16px;
+      color: #625f59;
+      font-size: .95rem;
+      line-height: 1.5;
+      transition: transform .2s, border-color .2s;
+    }
+
+    .hobbies li:hover {
+      transform: translateY(-2px);
+      border-color: #dedbd4;
+    }
+
+    .hobbies strong {
+      display: block;
+      color: #242424;
+      font-weight: 600;
+    }
+
+    footer {
+      margin-top: 3.5rem;
+      color: #8a867e;
+      font-size: .85rem;
+    }
   </style>
 </head>
 <body>
   <main>
-    <p class="eyebrow">Personal website</p>
-    <h1>Hi, I'm Estelle Wang.</h1>
-    <p class="intro">Welcome to my corner of the web. I'm working on adding more about myself here—please check back soon.</p>
+    <p class="eyebrow">Welcome to my corner of the web.</p>
+    <h1>Estelle (Xiaoyi) Wang.</h1>
+    <p class="intro">
+      I'm currently a senior (4th-year student) at the University of Toronto, double
+      majoring in Computer Science and Neuroscience.
+    </p>
     <nav aria-label="Social links">
-      <a href="https://github.com/EstelleWang-UofT" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true"> ↗</span></a>
+      <a
+        href="https://github.com/EstelleWang-UofT"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GitHub <span aria-hidden="true"> ↗</span>
+      </a>
+      <a
+        href="https://www.linkedin.com/in/xyestellewang/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        LinkedIn <span aria-hidden="true"> ↗</span>
+      </a>
+      <a href="mailto:wxiaoyi595@gmail.com">
+        Email me<span aria-hidden="true"> ↗</span>
+      </a>
+      <a href="Estelle_CV.pdf">CV</a>
     </nav>
-    <footer>Thanks for stopping by.</footer>
+    <section class="readings-i-like" aria-labelledby="readings-title">
+      <h2 id="readings-title" class="section-label">Readings I like</h2>
+      <p class="section-lead">
+        <a
+          href="https://www.cell.com/cell/fulltext/S0092-8674(24)00980-2"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Decoding the brain: From neural representations to mechanistic models
+        </a>
+      </p>
+      <p class="section-lead">
+        <a
+          href="https://www.science.org/doi/10.1126/science.adi5199"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Single-cell genomics and regulatory networks for 388 human brains
+        </a>
+      </p>
+      <p class="section-lead">
+        <a
+          href="https://www-nature-com.myaccess.library.utoronto.ca/articles/s41746-024-01062-3"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Self-supervised learning for human activity recognition using 700,000
+          person-days of wearable data
+        </a>
+      </p>
+    </section>
+    <section class="hobbies" aria-labelledby="hobbies-title">
+      <h2 id="hobbies-title" class="section-label">Off the clock</h2>
+      <p class="section-lead">
+        A few things I enjoy doing to relax and recharge:
+      </p>
+      <ul>
+        <li>
+          <strong>Sky watching</strong>
+          I'm a huge cloud person.
+        </li>
+        <li>
+          <strong>Calisthenics (beginner)</strong>
+          I'm getting there...
+        </li>
+        <li>
+          <strong>Nothing beats a good night's sleep.</strong>
+          No exceptions accepted.
+        </li>
+      </ul>
+    </section>
+    <footer>© 2026 Estelle Wang</footer>
   </main>
 </body>
 </html>
